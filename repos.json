@@ -1,0 +1,65 @@
+{
+  "pollIntervalMinutes": 10,
+  "repos": [
+    {
+      "label": "Azahar",
+      "owner": "azahar-emu",
+      "repo": "azahar",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "Ymir",
+      "owner": "StrikerX3",
+      "repo": "Ymir",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "PPSSPP",
+      "owner": "hrydgard",
+      "repo": "ppsspp",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "PCSX2",
+      "owner": "PCSX2",
+      "repo": "pcsx2",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "RPCS3",
+      "owner": "RPCS3",
+      "repo": "rpcs3",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "OpenEmu",
+      "owner": "OpenEmu",
+      "repo": "OpenEmu",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "bsnes",
+      "owner": "bsnesemulator",
+      "repo": "bsnes",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "Dolphin",
+      "owner": "dolphin-emu",
+      "repo": "dolphin",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "mGBA",
+      "owner": "mgba-emu",
+      "repo": "mgba",
+      "watch": ["stable", "nightly"]
+    },
+    {
+      "label": "SameBoy",
+      "owner": "LIJI32",
+      "repo": "SameBoy",
+      "watch": ["stable", "nightly"]
+    }
+  ]
+}

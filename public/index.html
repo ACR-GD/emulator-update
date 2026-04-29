@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emulator Update Radar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <div class="hero-top">
+          <h1 id="title">Emulator Update Radar</h1>
+          <button id="langToggle" class="lang-toggle" type="button">FR -> EN</button>
+        </div>
+        <p id="subtitle">Suivi communautaire des releases GitHub (stable + nightly)</p>
+        <div class="meta">
+          <span id="updatedAt">Chargement...</span>
+          <span id="pollInterval"></span>
+        </div>
+      </header>
+
+      <section>
+        <h2 id="latestHeading">Dernieres versions par emulateur</h2>
+        <div id="repoGrid" class="repo-grid"></div>
+      </section>
+
+      <section>
+        <h2 id="recentHeading">Fil recent</h2>
+        <ul id="recentList" class="recent-list"></ul>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
