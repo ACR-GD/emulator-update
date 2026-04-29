@@ -1,52 +1,89 @@
-# Emulator Update Ticker
+# Emulator Update Radar
 
-Outil de surveillance des mises a jour d'emulateurs open-source sur GitHub (stable et nightly), avec notifications desktop, Discord et dashboard web.
+Emulator Update Radar tracks open-source emulator updates on GitHub and notifies users when new builds are available.
 
-## Installation
+It supports:
+
+- Stable and nightly channels
+- Desktop notifications (macOS)
+- Optional Discord notifications
+- A bilingual dashboard (French/English toggle)
+- Persistent history with SQLite
+
+## Why this project
+
+Emulator communities often follow many projects at once (PPSSPP, PCSX2, RPCS3, Dolphin, mGBA, and more). This project provides one simple place to monitor update activity and quickly discover new releases.
+
+## Features
+
+- Polls GitHub on a configurable schedule
+- Detects updates from:
+  - Releases (primary source)
+  - Tags (fallback)
+  - Latest commit (final fallback for repos with no releases/tags)
+- Stores known events in `data/releases.db`
+- Exposes a web dashboard at `http://localhost:3030`
+- Exposes API endpoint: `/api/overview`
+
+## Quick Start
 
 ```bash
 npm install
 cp .env.example .env
 cp repos.example.json repos.json
-```
-
-Remplis ensuite `.env`:
-
-- `GITHUB_TOKEN`: token personnel GitHub (recommande pour eviter les limites API).
-- `DISCORD_WEBHOOK_URL`: optionnel, pour recevoir les alertes sur Discord.
-
-Edite `repos.json` pour la liste des emulateurs a surveiller.
-
-## Lancement
-
-En developpement:
-
-```bash
 npm run dev
 ```
 
-Puis ouvre:
+Open:
 
 ```bash
 http://localhost:3030
 ```
 
-En build production:
+## Configuration
 
-```bash
-npm run build
-npm start
-```
+### Environment variables
 
-## Fonctionnement
+Edit `.env`:
 
-- Le worker interroge l'API GitHub toutes les `pollIntervalMinutes`.
-- `stable`: releases non `prerelease`.
-- `nightly`: releases `prerelease`.
-- Les releases deja vues sont stockees dans `data/releases.db`.
-- Le dashboard affiche la derniere stable/nightly par projet et un fil recent.
+- `GITHUB_TOKEN` (recommended to avoid low API rate limits)
+- `DISCORD_WEBHOOK_URL` (optional)
+- `REPOS_CONFIG_PATH` (default: `repos.json`)
 
-## Notes
+### Repository list
 
-- Si un projet ne publie pas de nightly via les releases GitHub, il faut ajouter un fallback via tags/commits.
-- Sur macOS, les notifications desktop ouvrent la page de la release.
+Edit `repos.json`:
+
+- `pollIntervalMinutes`: polling interval
+- `repos[]`: emulator repositories to track
+- `watch`: channels to track (`stable`, `nightly`)
+
+## Scripts
+
+- `npm run dev`: run in development mode
+- `npm run typecheck`: TypeScript checks
+- `npm run build`: compile to `dist/`
+- `npm start`: run compiled app
+
+## Deployment
+
+DigitalOcean deployment instructions are available in `DEPLOY.md`, including:
+
+- PM2 process management
+- Nginx reverse proxy
+- HTTPS via Certbot
+- SQLite persistence and backup basics
+
+## Tech Stack
+
+- Node.js + TypeScript
+- Octokit (GitHub API)
+- better-sqlite3
+- Express
+- node-cron
+- node-notifier
+
+## License
+
+This project currently has no explicit license file yet.
+If you plan to accept public contributions, add a license (MIT is a good default).
