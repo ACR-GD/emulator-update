@@ -120,8 +120,3 @@ Contributions are welcome.
 2. Create a feature branch
 3. Run `npm run typecheck` and `npm run build`
 4. Open a pull request with a clear description
-
-## License
-
-This project currently has no explicit license file yet.
-If you plan to accept public contributions, add a license (MIT is a good default).
